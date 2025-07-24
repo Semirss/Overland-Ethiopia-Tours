@@ -54,7 +54,7 @@ const HeroSection: React.FC = () => {
         <div className="flex items-center gap-4">
           <span className="text-sm hidden md:inline">🌐EN</span>
           <Link href="/login" className="text-sm hover:underline">LOGIN</Link>
-          <button className="bg-white text-black font-semibold px-5 py-2 rounded-full text-sm hover:bg-gray-200">
+          <button className="bg-white text-black font-semibold px-7 py-2 rounded-full text-sm hover:bg-gray-200">
             SIGN UP
           </button>
         </div>
