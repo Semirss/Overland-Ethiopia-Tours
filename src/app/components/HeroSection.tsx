@@ -19,7 +19,7 @@ const HeroSection: React.FC = () => {
       <div className="absolute inset-0 bg-black/40 z-0" />
 
       {/* Header */}
-      <header className="relative z-10 flex justify-between items-center px-6 sm:px-10 md:px-20 lg:px-40 xl:px-[289px] py-6 w-full">
+      <header className="relative z-10 flex justify-between items-center px-6 sm:px-8 md:px-15 lg:px-30 xl:px-[269px] py-2 w-full">
         <div className="flex items-center gap-3">
           <button
             onClick={handleToggle}
