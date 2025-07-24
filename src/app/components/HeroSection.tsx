@@ -66,13 +66,13 @@ const HeroSection: React.FC = () => {
           EXPLORE <br className="block md:hidden" /> NATURE IN VR
         </h1>
         <p className="mt-4 text-lg sm:text-xl opacity-90">See the world from home!</p>
-        <button className="mt-6 bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200">
+        <button className="mt-7 bg-white text-black px-6 py-3 rounded-full font-semibold hover:bg-gray-200">
           START TRAVELLING
         </button>
       </div>
 
       {/* Explore Cards + Video */}
-      <div className="w-full pl-4 sm:pl-6 md:pl-70 pr-0 py-0 custom-lg:flex hidden">
+      <div className="w-full  pl-4 sm:pl-6 md:pl-70 pr-0 py-0 custom-lg:flex hidden" style={{marginTop: '-80px'}}>
         <div className="flex flex-col md:flex-row w-full h-full overflow-hidden">
           {/* Category Cards */}
           <div className="bg-white/70 backdrop-blur-md rounded-xl md:rounded-l-xl shadow-md flex-grow md:w-2/3 lg:w-3/4">
