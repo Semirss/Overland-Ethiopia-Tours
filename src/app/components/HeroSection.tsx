@@ -62,7 +62,7 @@ const HeroSection: React.FC = () => {
 
       {/* Hero Content */}
       <div className="relative z-10 flex flex-col justify-start items-start text-start h-180 px-4 py-4 sm:px-6 md:px-70">
-        <h1 className="text-7xl mt-10 sm:text-5xl md:text-9xl font-extrabold leading-tight max-w-5xl">
+        <h1 className="text-7xl mt-10 sm:text-5xl md:text-8xl font-extrabold leading-tight max-w-5xl">
           EXPLORE <br className="block md:hidden" /> NATURE IN VR
         </h1>
         <p className="mt-4 text-lg sm:text-xl opacity-90">See the world from home!</p>
