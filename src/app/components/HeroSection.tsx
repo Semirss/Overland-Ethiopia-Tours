@@ -72,7 +72,7 @@ const HeroSection: React.FC = () => {
       </div>
 
       {/* Explore Cards + Video */}
-      <div className="w-full  pl-4 sm:pl-6 md:pl-70 pr-0 py-0 custom-lg:flex hidden" style={{marginTop: '-80px'}}>
+      <div className="w-full  pl-4 sm:pl-6 md:pl-70 pr-0 py-0 custom-lg:flex hidden" style={{marginTop: '90px'}}>
         <div className="flex flex-col md:flex-row w-full h-full overflow-hidden">
           {/* Category Cards */}
           <div className="bg-white/70 backdrop-blur-md rounded-xl md:rounded-l-xl shadow-md flex-grow md:w-2/3 lg:w-3/4">
