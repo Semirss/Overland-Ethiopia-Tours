@@ -30,7 +30,7 @@ export default function RootLayout({
         <PopularVRTours />
         <TravelerStories />
         <Map />
-        <FAQ />
+        {/* <FAQ /> */}
         <Footer/>
       </body>
     </html>

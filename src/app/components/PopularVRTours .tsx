@@ -12,46 +12,95 @@ interface VrTour {
 }
 
 const vrTours: VrTour[] = [
-  {
+   {
     id: '1',
-    imageSrc: '/2.jpg',
-    title: 'Amazon Rainforest Adventure',
-    description: 'Step into the heart of the Amazon jungle, surrounded by lush greenery, exotic wildlife, and the sounds of nature',
-    location: 'Brazil',
-    duration: '20 min',
+    imageSrc: '/Tour-to-the-Historic-Route-with-Semien-Mountains-Overland-Ethiopia-Tours.jpg',
+    title: 'Tour to the Historic Route with Semien Mountains',
+    description:
+      'This Ethiopian tour leads to the rich historical sites of Ethiopia passes through scenic highlands, gorges and spectacular panoramas.',
+    location: 'Ethiopia',
+    duration: '10 Days',
   },
   {
     id: '2',
-    imageSrc: '/3.jpg',
-    title: 'Aurora Over Iceland',
-    description: 'Experience the magic of the Northern Lights dancing across the Icelandic sky',
-    location: 'Iceland',
-    duration: '15 min',
+    imageSrc: '/Tour-to-Danakil-Deprssion-and-Erta-Ale-Overland-Ethiopia-Tours.jpg',
+    title: 'Tour to Danakil Depression and Erta Ale',
+    description:
+      'The Danakil Depression is one of the remotest, lowest and unique land formations of the world in the Great Rift Valley system.',
+    location: 'Ethiopia',
+    duration: '14 Days',
   },
   {
     id: '3',
-    imageSrc: '4.jpg',
-    title: 'White Sand Dunes',
-    description: 'Walk across the iconic Grand Canyon Skywalk, suspended over breathtaking cliffs',
-    location: 'Morocco',
-    duration: '15 min',
+    imageSrc: '/Tour-to-the-Omo-Valley-and-Historic-Route-Overland-Ethiopia-Tours.jpg',
+    title: 'Tour to the Omo Valley and Historic Route',
+    description:
+      'The Omo Valley in southern Ethiopia is a little visited area of Ethiopia containing some of the most colorful tribes and ethnic groups.',
+    location: 'Ethiopia',
+    duration: '24 Days',
   },
+  {
+    id: '4',
+    imageSrc: '/Tour-to-Danakil-Depression-and-Historic-Rout-Overland-Ethiopia-Tours.jpg',
+    title: 'Tour to Danakil Depression and Historic Route',
+    description:
+      'In this adventure, you will explore Erta Ale, absolutely unique Lava Lake erupting 24 hours and Dallol, the lowest part of Danakil Depression.',
+    location: 'Ethiopia',
+    duration: '22 Days',
+  },
+  {
+    id: '5',
+    imageSrc: '/Tour-to-the-Omo-Valley-with-Yabello-Overland-Ethiopia-Tours.jpg',
+    title: 'Tour to the Omo Valley with Yabello',
+    description:
+      'Ethiopian tour packages focus on a tribal adventure travel trip, overland into the depths of the Rift Valley, visiting amazing rift valley lakes and meeting the local tribal people.',
+    location: 'Ethiopia',
+    duration: '16 Days',
+  },
+  {
+    id: '6',
+    imageSrc: '/Trekking-Tour-to-the-Simien-Mountains-with-Gonder-Overland-Ethiopia-Tours.jpg',
+    title: 'Trekking Tour to the Simien Mountains with Gonder',
+    description:
+      'Simien Mountains is a registered National Park by UNESCO as a World Heritage site and there are over 20 peaks towering 4000 m.',
+    location: 'Ethiopia',
+    duration: '12 Days',
+  },
+  {
+    id: '7',
+    imageSrc: '/Trekking-Tour-to-the-Bale-Mountains-Overland-Ethiopia-Tours.jpg',
+    title: 'Trekking Tour to the Bale Mountains',
+    description:
+      'In Bale, you can trek all the way through richer mosaic of high altitude plateau, heather moorlands and dense juniper forest with as easily seen population of Mountain Nyala.',
+    location: 'Ethiopia',
+    duration: '14 Days',
+  },
+  {
+    id: '8',
+    imageSrc: '/Tour-to-the-Omo-valley-and-Surma-Tribe-Overland-Ethiopia-Tours.jpg',
+    title: 'Tour to the Omo Valley and Surma Tribe',
+    description:
+      'The mysterious people of the Surma live in the south west of Ethiopia, due to their geographical isolation, they are able to maintain a unique and rich culture.',
+    location: 'Ethiopia',
+    duration: '21 Days',
+  },
+
 ];
 
 const PopularVRTours: React.FC = () => {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4 font-sans">
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center  pt-20  pr-4 pl-4 py-6 font-sans">
       <div className="container mx-auto max-w-9xl">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-          <h2 className="text-5xl font-bold text-gray-800 mb-4 md:mb-0">POPULAR VR-TOURS</h2>
+          <h2 className="text-5xl font-bold text-gray-800 mb-4 md:mb-0">Best Ethiopia Tour Packages</h2>
           <button className="bg-black text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-800 transition duration-300">
             EXPLORE ALL VR-TOURS
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {vrTours.map((tour) => (
             <div key={tour.id} className="overflow-hidden flex flex-col">
               <div className="relative w-full h-84 rounded-4xl shadow-lg overflow-hidden mb-4">
@@ -73,19 +122,16 @@ const PopularVRTours: React.FC = () => {
                   className="absolute inline-block  text-center bottom-10 left-1/2 transform -translate-x-1/2 items-center bg-opacity-90 px-4 py-2 rounded-full shadow-md cursor-pointer hover:bg-opacity-100 transition duration-300"
                   onClick={() => setSelectedVideo('https://www.youtube.com/embed/zS4AP0Q8L8g?autoplay=1')}
                 >
-                  <svg className="w-45 h-20 text-gray-100 mr-2" fill="currentcolor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  {/* <svg className="w-45 h-20 text-gray-100 mr-2" fill="currentcolor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd"></path>
                   </svg>
-                  <span className="text-3xl text-gray-100 text-center items-center">Watch in 360°</span>
+                  <span className="text-3xl text-gray-100 text-center items-center">Watch in 360°</span> */}
                   <div className='mt-9 flex items-center text-gray-100 text-sm ml-4'>
                     <svg className="w-4 h-4 mr-1 text-gray-100" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path>
                     </svg>
                     <span className="mr-4 text-gray-100">location</span>
-                    <svg className="w-4 h-4 mr-1 text-gray-100" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l3 3a1 1 0 001.414-1.414L11 9.586V6z" clipRule="evenodd"></path>
-                    </svg>
-                    <span className='text-gray-100'>1 hour</span>
+                   
                   </div>
                 </div>
               </div>
@@ -104,8 +150,8 @@ const PopularVRTours: React.FC = () => {
                   </svg>
                   <span>{tour.duration}</span>
                 </div>
-                <button className="mt-6 text-green-900 py-3 border w-50 border-emerald-700 rounded-full font-semibold hover:bg-green-200">
-                  START VR TOUR
+                <button className="mt-6 text-grey-900 py-3 border w-50 border-red-700 rounded-full font-semibold hover:bg-red-200">
+                  Read More
                 </button>
               </div>
             </div>
