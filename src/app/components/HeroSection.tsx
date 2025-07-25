@@ -6,7 +6,7 @@ import { Play, X, ChevronDown, ChevronUp, Mail, Phone, Facebook, Instagram, Twit
 // Define the structure for navigation items
 interface NavItem {
   name: string;
-  href?: string; // Optional for parent items that are just dropdown toggles
+  href?: string;
   subLinks?: { name: string; href: string; icon?: React.ElementType }[]; // Added icon property
 }
 
@@ -48,7 +48,7 @@ const navItems: NavItem[] = [
   {
     name: 'Tailor-Made Tours',
     href: '#tailor-made',
-    subLinks: [ // Added sublinks as per your last input (even if not explicitly requested for this section)
+    subLinks: [ 
       { name: 'Classic Tours', href: '#packages-classic' },
       { name: 'Adventure Tours', href: '#packages-adventure' },
       { name: 'Luxury Tours', href: '#packages-luxury' },
@@ -126,15 +126,28 @@ const HeroSection: React.FC = () => {
       {/* Header */}
       <header className="relative z-20 flex justify-between items-center px-6 sm:px-8 md:px-15 lg:px-30 xl:px-[269px] py-2 w-full">
         <div className="flex items-center gap-3">
+          {/* Mobile Logo Button */}
           <button
             onClick={handleToggleMobileMenu}
-            className="text-xl font-bold tracking-wide focus:outline-none md:cursor-default lg:hidden"
+            className="flex items-center focus:outline-none lg:hidden" 
             aria-label="Toggle Navigation"
           >
-            VR-TOURS 360°
+            <img
+              src="/Overland-Ethiopia-Tours-Logo.png" 
+              alt="VR-Tours Logo"
+              className="w-10 h-10 object-cover"
+            />
+            <span className="text-xl font-bold tracking-wide ml-2">OVERLAND
+</span>
           </button>
-          <a href="/" className="hidden lg:block text-xl font-bold tracking-wide">
-            VR-TOURS 360°
+          {/* Desktop Logo Link */}
+          <a href="/" className="hidden lg:flex items-center text-xl font-bold tracking-wide">
+            <img
+              src="/Overland-Ethiopia-Tours-Logo.png" 
+              alt="VR-Tours Logo"
+              className="w-10 h-10  object-cover mr-2"
+            />
+            OVERLAND
           </a>
         </div>
 
@@ -159,7 +172,7 @@ const HeroSection: React.FC = () => {
                 <>
                   <button
                     onClick={() => handleMobileDropdownToggle(item.name)}
-                    className="flex justify-between items-center w-full py-2 text-left text-gray-800 hover:text-blue-600 focus:outline-none"
+                    className="flex justify-between items-center w-full py-2 text-left text-gray-800 hover:text-red-600 focus:outline-none"
                   >
                     {item.name}
                     {activeMobileDropdown === item.name ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
