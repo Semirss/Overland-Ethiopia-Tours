@@ -5,37 +5,35 @@ import React, { useState, useEffect, useRef } from 'react';
 interface TourLocation {
   id: string;
   name: string;
-  lat: number;
-  lng: number;
+  imageSrc: string; 
   tours: number;
+  description: string; 
 }
 
-// Sample data for tour locations
+
 const allTourLocations: TourLocation[] = [
-  { id: '1', name: 'Nordic lights', lat: 64.9631, lng: -19.0208, tours: 2 }, 
-  { id: '2', name: 'Iceland', lat: 64.9631, lng: -19.0208, tours: 12 },
-  { id: '3', name: 'Amazon Rainforest', lat: -3.4653, lng: -62.2159, tours: 8 }, 
-  { id: '4', name: 'Grand Canyon, USA', lat: 36.1069, lng: -112.1129, tours: 6 },
-  { id: '5', name: 'Sahara Desert, Morocco', lat: 23.4514, lng: -10.0000, tours: 7 }, 
-  { id: '6', name: 'Mount Everest', lat: 27.9881, lng: 86.9250, tours: 3 },
-  { id: '7', name: 'Great Barrier Reef', lat: -18.2871, lng: 147.6992, tours: 5 },
-  { id: '8', name: 'Kyoto, Japan', lat: 35.0116, lng: 135.7681, tours: 4 },
-  { id: '9', name: 'Machu Picchu, Peru', lat: -13.1631, lng: -72.5450, tours: 2 },
-  { id: '10', name: 'Paris, France', lat: 48.8566, lng: 2.3522, tours: 10 },
+  { id: '1', name: 'Semien Mountains', imageSrc: '/Tour-to-the-Historic-Route-with-Semien-Mountains-Overland-Ethiopia-Tours.jpg', tours: 10, description: 'This Ethiopian tour leads to the rich historical sites of Ethiopia passes through scenic highlands, gorges and spectacular panoramas.' },
+  { id: '2', name: 'Danakil Depression and Erta Ale', imageSrc: '/Tour-to-Danakil-Deprssion-and-Erta-Ale-Overland-Ethiopia-Tours.jpg', tours: 14, description: 'The Danakil Depression is one of the remotest, lowest and unique land formations of the world in the Great Rift Valley system.' },
+  { id: '3', name: 'Omo Valley and Historic Route', imageSrc: '/Tour-to-the-Omo-Valley-and-Historic-Route-Overland-Ethiopia-Tours.jpg', tours: 24, description: 'The Omo Valley in southern Ethiopia is a little visited area of Ethiopia containing some of the most colorful tribes and ethnic groups.' },
+  { id: '4', name: 'Danakil Depression and Historic Route', imageSrc: '/Tour-to-Danakil-Depression-and-Historic-Rout-Overland-Ethiopia-Tours.jpg', tours: 22, description: 'In this adventure, you will explore Erta Ale, absolutely unique Lava Lake erupting 24 hours and Dallol, the lowest part of Danakil Depression.' },
+  { id: '5', name: 'Omo Valley with Yabello', imageSrc: '/Tour-to-the-Omo-Valley-with-Yabello-Overland-Ethiopia-Tours.jpg', tours: 16, description: 'Ethiopian tour packages focus on a tribal adventure travel trip, overland into the depths of the Rift Valley, visiting amazing rift valley lakes and meeting the local tribal people.' },
+  { id: '6', name: 'Simien Mountains with Gonder', imageSrc: '/Trekking-Tour-to-the-Simien-Mountains-with-Gonder-Overland-Ethiopia-Tours.jpg', tours: 12, description: 'Simien Mountains is a registered National Park by UNESCO as a World Heritage site and there are over 20 peaks towering 4000 m.' },
+  { id: '7', name: 'Bale Mountains', imageSrc: '/Trekking-Tour-to-the-Bale-Mountains-Overland-Ethiopia-Tours.jpg', tours: 14, description: 'In Bale, you can trek all the way through richer mosaic of high altitude plateau, heather moorlands and dense juniper forest with as easily seen population of Mountain Nyala.' },
+  { id: '8', name: 'Omo Valley and Surma Tribe', imageSrc: '/Tour-to-the-Omo-valley-and-Surma-Tribe-Overland-Ethiopia-Tours.jpg', tours: 21, description: 'The mysterious people of the Surma live in the south west of Ethiopia. Due to their geographical isolation, they are able to maintain a unique and rich culture.' },
 ];
 
 const Map: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredLocations, setFilteredLocations] = useState<TourLocation[]>(allTourLocations);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [selectedLocation, setSelectedLocation] = useState<TourLocation | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const imageDisplayRef = useRef<HTMLDivElement>(null); 
 
-  // State for toggle switches
   const [is360ModeEnabled, setIs360ModeEnabled] = useState(false);
   const [isAudioGuideEnabled, setIsAudioGuideEnabled] = useState(false);
   const [isVrHeadsetSupportEnabled, setIsVrHeadsetSupportEnabled] = useState(false);
 
-  // Filter locations based on search term
   useEffect(() => {
     if (searchTerm === '') {
       setFilteredLocations(allTourLocations);
@@ -48,7 +46,6 @@ const Map: React.FC = () => {
     }
   }, [searchTerm]);
 
-  // Handle clicks outside the dropdown to close it
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -61,14 +58,43 @@ const Map: React.FC = () => {
     };
   }, []);
 
+  // Scroll to image display when a location is selected
+  useEffect(() => {
+    if (selectedLocation && imageDisplayRef.current) {
+      imageDisplayRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [selectedLocation]); // Trigger scroll when selectedLocation changes
+
+  // Handle selection of a location from the dropdown or search
+  const handleSelectLocation = (locationName: string) => {
+    setSearchTerm(locationName);
+    setShowDropdown(false);
+    const selected = allTourLocations.find(loc => loc.name === locationName);
+    if (selected) {
+      setSelectedLocation(selected); 
+    } else {
+      setSelectedLocation(null); 
+    }
+  };
+
+  const handleSearchButtonClick = () => {
+    const selected = allTourLocations.find(loc => loc.name.toLowerCase() === searchTerm.toLowerCase());
+    if (selected) {
+      setSelectedLocation(selected); 
+    } else {
+      setSelectedLocation(null);
+    }
+    setShowDropdown(false); 
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center p-4 font-sans">
-      <div className="container mx-auto max-w-fit  p-8 my-8">
-        <h2 className="text-5xl font-bold text-gray-800 mb-8">CHOOSE YOUR TOUR</h2>
+      <div className="container mx-auto max-w-8xl p-4 md:p-8 my-8"> {/* Increased max-width */}
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-8 text-center">CHOOSE YOUR TOUR</h2>
 
         {/* Search and Filter Bar */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8 relative">
-          <div className="col-span-1 md:col-span-2 relative" ref={dropdownRef}>
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8 relative items-end">
+          <div className="col-span-1 md:col-span-4 relative" ref={dropdownRef}>
             <label htmlFor="where" className="block text-gray-600 text-sm font-semibold mb-1">Where</label>
             <input
               type="text"
@@ -80,26 +106,22 @@ const Map: React.FC = () => {
               onFocus={() => setShowDropdown(true)}
             />
             {showDropdown && (
-              <div className="absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-lg shadow-lg mt-2 z-10">
+              <div className="absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-lg shadow-lg mt-2 z-10 max-h-60 overflow-y-auto">
                 <div className="p-4">
                   <h4 className="font-semibold text-gray-700 mb-2">Your recent search</h4>
                   <ul className="space-y-2">
-                    {/* Display recent searches or placeholder */}
                     <li className="flex items-center text-gray-600">
                       <svg className="w-4 h-4 mr-2 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path></svg>
-                      Nordic lights <span className="ml-auto text-sm text-gray-500">2 tours</span>
+                      Semien Mountains <span className="ml-auto text-sm text-gray-500">10 tours</span>
                     </li>
                   </ul>
                   <h4 className="font-semibold text-gray-700 mt-4 mb-2">Suggested destinations</h4>
                   <ul className="space-y-2">
-                    {allTourLocations.slice(0, 5).map((loc) => ( // Show top 5 suggestions
+                    {filteredLocations.map((loc) => (
                       <li
                         key={loc.id}
                         className="flex items-center text-gray-600 cursor-pointer hover:bg-gray-100 p-1 rounded"
-                        onClick={() => {
-                          setSearchTerm(loc.name);
-                          setShowDropdown(false);
-                        }}
+                        onClick={() => handleSelectLocation(loc.name)}
                       >
                         <svg className="w-4 h-4 mr-2 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path></svg>
                         {loc.name} <span className="ml-auto text-sm text-gray-500">{loc.tours} tours</span>
@@ -111,27 +133,18 @@ const Map: React.FC = () => {
             )}
           </div>
 
-          <div>
-            <label htmlFor="environment" className="block text-gray-600 text-sm font-semibold mb-1">Environment</label>
-            <input type="text" id="environment" placeholder="What do you expect to get..." className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          </div>
-          <div>
-            <label htmlFor="experience-type" className="block text-gray-600 text-sm font-semibold mb-1">Experience Type</label>
-            <input type="text" id="experience-type" placeholder="What activities you prefer..." className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          </div>
-          <div>
-            <label htmlFor="setup" className="block text-gray-600 text-sm font-semibold mb-1">Setup</label>
-            <input type="text" id="setup" placeholder="What do you expect..." className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          </div>
-          <button className="col-span-1 bg-black text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-gray-800 transition duration-300 mt-7 md:mt-0">
+          <button
+            className="col-span-1 bg-black text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-gray-800 transition duration-300 w-full"
+            onClick={handleSearchButtonClick}
+          >
             SEARCH
           </button>
         </div>
 
-        {/* Map and Filters */}
+        {/* Image Display and Filters */}
         <div className="flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-8">
           {/* Left Sidebar Filters */}
-          <div className="w-full lg:w-1/4 h-110 bg-white p-6 rounded-xl shadow-inner">
+          <div className="w-full lg:w-1/4 bg-white p-6 rounded-xl shadow-inner">
             <h3 className="font-bold text-gray-800 mb-4">Filters</h3>
             <div className="space-y-4">
               <div>
@@ -146,7 +159,7 @@ const Map: React.FC = () => {
                 <ul className="space-y-2">
                   <li className="flex items-center text-gray-600">
                     <svg className="w-4 h-4 mr-2 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path></svg>
-                    Nordic lights <span className="ml-auto text-sm text-gray-500">2 tours</span>
+                    Omo Valley with Yabello<span className="ml-auto text-sm text-gray-500">16 tours</span>
                   </li>
                 </ul>
               </div>
@@ -164,82 +177,41 @@ const Map: React.FC = () => {
             </div>
           </div>
 
-          {/* Map Section */}
-          <div className="flex-grow relative bg-gray-200 rounded-xl overflow-hidden shadow-md" style={{ height: '700px' }}>
-            <img
-              src="/9.png"
-              alt="World Map"
-              className="w-full h-full object-cover"
-            />
-            {/* Render filtered locations as dots on the map */}
-            {filteredLocations.map((location) => (
-              <div
-                key={location.id}
-                className="absolute w-5 h-5 bg-green-500 rounded-full animate-pulse"
-                style={{
-                  // These are rough percentages for placement on a generic world map placeholder.
-                  // For a real map library (e.g., Leaflet, Google Maps), you'd convert lat/lng to pixel coordinates.
-                  left: `${(location.lng + 180) / 360 * 200}%`, 
-                  top: `${(90 - location.lat) / 190 * 110}%`,
-                }}
-                title={`${location.name} (${location.tours} tours)`}
-              ></div>
-            ))}
-          </div>
-
-          {/* Right Sidebar Filters (Toggles) */}
-          <div className="w-full lg:w-1/4 bg-white h-60 p-7 rounded-xl shadow-inner">
-            <h3 className="font-bold text-gray-800 mb-4">Settings</h3>
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-gray-700">360° Mode</span>
-                <label htmlFor="toggle-360" className="flex items-center cursor-pointer">
-                  <div className="relative">
-                    <input
-                      type="checkbox"
-                      id="toggle-360"
-                      className="sr-only"
-                      checked={is360ModeEnabled}
-                      onChange={() => setIs360ModeEnabled(!is360ModeEnabled)}
-                    />
-                    <div className={`block w-14 h-8 rounded-full ${is360ModeEnabled ? 'bg-gray-900' : 'bg-gray-600'}`}></div>
-                    <div className={`dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition-transform duration-300 ${is360ModeEnabled ? 'translate-x-full' : ''}`}></div>
-                  </div>
-                </label>
+          {/* Image Display Section */}
+          <div
+            ref={imageDisplayRef} // Attach the ref here
+            className="flex-grow relative bg-gray-200 rounded-xl overflow-hidden shadow-md flex items-center justify-center"
+            style={{ height: '700px' }}
+          >
+            {selectedLocation ? (
+              <>
+                <img
+                  src={selectedLocation.imageSrc}
+                  alt={selectedLocation.name}
+                  className="w-full h-full object-cover"
+                  // Fallback for broken images
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://placehold.co/1200x800/E0E0E0/666666?text=Image+Not+Found';
+                    e.currentTarget.alt = 'Image not available';
+                  }}
+                />
+                {/* Gradient overlay for description */}
+                <div
+                  className="absolute bottom-0 left-0 w-full h-1/2 p-6 flex flex-col justify-end text-white rounded-b-xl"
+                  style={{
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%)',
+                  }}
+                >
+                  <h3 className="text-3xl font-bold mb-2">{selectedLocation.name}</h3>
+                  <p className="text-lg">{selectedLocation.description}</p> {/* Displaying description */}
+                  <p className="text-sm text-gray-300 mt-1">{selectedLocation.tours} Tours Available</p>
+                </div>
+              </>
+            ) : (
+              <div className="text-gray-500 text-lg p-4 text-center">
+                Search for a destination to see its image and details!
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-gray-700">With Audio Guide</span>
-                <label htmlFor="toggle-audio" className="flex items-center cursor-pointer">
-                  <div className="relative">
-                    <input
-                      type="checkbox"
-                      id="toggle-audio"
-                      className="sr-only"
-                      checked={isAudioGuideEnabled}
-                      onChange={() => setIsAudioGuideEnabled(!isAudioGuideEnabled)}
-                    />
-                    <div className={`block w-14 h-8 rounded-full ${isAudioGuideEnabled ? 'bg-gray-900' : 'bg-gray-600'}`}></div>
-                    <div className={`dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition-transform duration-300 ${isAudioGuideEnabled ? 'translate-x-full' : ''}`}></div>
-                  </div>
-                </label>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-gray-700">VR Headset Support</span>
-                <label htmlFor="toggle-vr" className="flex items-center cursor-pointer">
-                  <div className="relative">
-                    <input
-                      type="checkbox"
-                      id="toggle-vr"
-                      className="sr-only"
-                      checked={isVrHeadsetSupportEnabled}
-                      onChange={() => setIsVrHeadsetSupportEnabled(!isVrHeadsetSupportEnabled)}
-                    />
-                    <div className={`block w-14 h-8 rounded-full ${isVrHeadsetSupportEnabled ? 'bg-gray-900' : 'bg-gray-600'}`}></div>
-                    <div className={`dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition-transform duration-300 ${isVrHeadsetSupportEnabled ? 'translate-x-full' : ''}`}></div>
-                  </div>
-                </label>
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
