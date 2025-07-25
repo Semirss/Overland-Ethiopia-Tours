@@ -138,7 +138,7 @@ const HeroSection: React.FC = () => {
   return (
     <div
       className="relative min-h-screen w-full bg-cover bg-center text-white overflow-hidden"
-      style={{ backgroundImage: "url('/1.jpg')" }}
+      style={{ backgroundImage: "url('/5bg.webp')" }}
     >
       <div className="absolute inset-0 bg-black/40 z-0" />
 
@@ -325,7 +325,7 @@ const HeroSection: React.FC = () => {
       {/* Hero Content */}
       <div className="relative z-10 flex flex-col justify-start items-start text-start px-3 py-3 sm:px-4 md:px-5  lg:px-6 xl:px-25 2xl:px-12 pt-12 md:pt-8 mb-4">
         <h1 className="text-7xl  sm:text-4xl md:text-7xl lg:text-6xl xl:text-8xl font-extrabold leading-tight max-w-4xl">
-          Overland Ethiopia<br className="block " /> <span className='text-red-500'>  Tours</span>
+          Overland <br className="block " />Ethiopia <span className='text-red-500'>Tours</span>
         </h1>
         <p className="mt-2 text-sm sm:text-base md:text-sm opacity-90 max-w-xl">
           See the world from home!
@@ -376,7 +376,7 @@ const HeroSection: React.FC = () => {
 
           {/* Video Section */}
           <div className="relative flex-shrink-0 w-full md:w-1/3 lg:w-1/4 hidden md:block">
-            <img src="/1bg.jpg" alt="Watch in 360" className="w-full h-full object-cover" />
+            <img src="/4bg.jpg" alt="Watch in 360" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-75" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="flex flex-col items-center justify-center">
