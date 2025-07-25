@@ -102,7 +102,7 @@ const HeroSection: React.FC = () => {
       setIsIconNav(window.innerWidth < 1038);
     };
     
-    handleResize(); // Initial check
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -138,11 +138,11 @@ const HeroSection: React.FC = () => {
   return (
     <div
       className="relative min-h-screen w-full bg-cover bg-center text-white overflow-hidden"
-      style={{ backgroundImage: "url('/2bg.jpg')" }}
+      style={{ backgroundImage: "url('/1.jpg')" }}
     >
       <div className="absolute inset-0 bg-black/40 z-0" />
 
-      <header className="relative z-20 flex justify-between items-center px-3 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-16 py-1 w-full">
+      <header className="relative z-20 flex justify-between items-center px-3 sm:px-4 md:px-6 lg:px-8 xl:px-25 2xl:px-16 py-2  w-full">
         <div className="flex items-center gap-2">
           <a href="/" className="flex items-center text-lg font-bold tracking-wide">
             <img
@@ -271,7 +271,7 @@ const HeroSection: React.FC = () => {
 
         {/* Desktop Nav - Full Text */}
         {!isIconNav && (
-          <nav ref={desktopNavRef} className="hidden lg:flex gap-3 xl:gap-4 text-xs font-bold relative z-10">
+          <nav ref={desktopNavRef} className="hidden lg:flex gap-3 xl:gap-4 text-xs font-semibold relative z-10">
             {navItems.map((item) => (
               <div key={item.name} className="relative group">
                 {item.subLinks ? (
@@ -324,20 +324,20 @@ const HeroSection: React.FC = () => {
 
       {/* Hero Content */}
       <div className="relative z-10 flex flex-col justify-start items-start text-start px-3 py-3 sm:px-4 md:px-5  lg:px-6 xl:px-25 2xl:px-12 pt-12 md:pt-8 mb-4">
-        <h1 className="text-3xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-8xl font-extrabold leading-tight max-w-4xl">
-          Overland <br className="block " /> <span className='text-red-500'> Ethiopia Tours</span>
+        <h1 className="text-7xl  sm:text-4xl md:text-7xl lg:text-6xl xl:text-8xl font-extrabold leading-tight max-w-4xl">
+          Overland Ethiopia<br className="block " /> <span className='text-red-500'>  Tours</span>
         </h1>
         <p className="mt-2 text-sm sm:text-base md:text-sm opacity-90 max-w-xl">
           See the world from home!
         </p>
-        <button className="mt-4 sm:mt-5 bg-white text-black px-4 py-1.5 sm:px-4 sm:py-2 rounded-full font-semibold hover:bg-gray-200 text-xs sm:text-sm">
+        <button className="mt-5 sm:mt-5 bg-white text-black px-4    py-1.5 sm:px-4 sm:py-2 rounded-full font-semibold hover:bg-gray-200 text-xs sm:text-sm">
           START TRAVELLING
         </button>
       </div>
 
       {/* Explore Cards + Video */}
-      <div className="w-full pl-3 sm:pl-4 md:pl-25 pr-0 py-0  md:h-50 lg:flex">
-        <div className="flex flex-col md:flex-row w-full h-full overflow-hidden">
+<div className="w-full pl-3 sm:pl-4 md:pl-25 pr-0 py-0 md:h-50 flex flex-col lg:flex-row mt-auto">
+        <div className="flex flex-col md:flex-row w-full  overflow-hidden">
           {/* Category Cards */}
           <div className="bg-white/70 backdrop-blur-md rounded-lg md:rounded-l-lg shadow-md flex-grow md:w-2/3 lg:w-3/4">
             <div className="bg-white/10 backdrop-blur-xl p-3 rounded-lg md:rounded-l-lg shadow-lg overflow-hidden h-full">
@@ -364,7 +364,7 @@ const HeroSection: React.FC = () => {
                     className="flex flex-col p-1.5 flex-shrink-0 w-64 2xl:w-72 border-gray-200"
                   >
                     <h3 className="text-gray-900 text-xl font-bold mb-2">{title}</h3>
-                    <div className="overflow-y-auto max-h-[140px] hide-scrollbar mb-2">
+                    <div className="overflow-y-auto max-h-[100px] hide-scrollbar mb-2">
                       <p className="text-gray-600 text-sm whitespace-normal pr-1">{desc}</p>
                     </div>
                     <a href="#" className="text-red-500 font-semibold underline hover:text-gray-900 mt-auto text-sm">EXPLORE</a>
@@ -375,7 +375,7 @@ const HeroSection: React.FC = () => {
           </div>
 
           {/* Video Section */}
-          <div className="relative flex-shrink-0 w-full md:w-1/3 lg:w-1/4  md:block">
+          <div className="relative flex-shrink-0 w-full md:w-1/3 lg:w-1/4 hidden md:block">
             <img src="/1bg.jpg" alt="Watch in 360" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-75" />
             <div className="absolute inset-0 flex items-center justify-center">
