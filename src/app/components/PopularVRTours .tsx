@@ -92,9 +92,9 @@ const PopularVRTours: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center  pt-20  pr-4 pl-4 py-6 font-sans">
-      <div className="container mx-auto max-w-9xl">
+      <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-          <h2 className="text-5xl font-bold text-gray-800 mb-4 md:mb-0">Best Ethiopia Tour Packages</h2>
+          <h2 className="text-4xl font-bold text-gray-800 mb-4 md:mb-0">Best Ethiopia Tour Packages</h2>
           <button className="bg-black text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-800 transition duration-300">
             EXPLORE ALL VR-TOURS
           </button>
@@ -103,7 +103,7 @@ const PopularVRTours: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {vrTours.map((tour) => (
             <div key={tour.id} className="overflow-hidden flex flex-col">
-              <div className="relative w-full h-84 rounded-4xl shadow-lg overflow-hidden mb-4">
+              <div className="relative w-full h-65 rounded-4xl shadow-lg overflow-hidden mb-2">
                 <img
                   src={tour.imageSrc}
                   alt={tour.title}
@@ -119,28 +119,28 @@ const PopularVRTours: React.FC = () => {
                   </svg>
                 </div>
                 <div
-                  className="absolute inline-block  text-center bottom-10 left-1/2 transform -translate-x-1/2 items-center bg-opacity-90 px-4 py-2 rounded-full shadow-md cursor-pointer hover:bg-opacity-100 transition duration-300"
+                  className="absolute inline-block  text-center bottom-10 left-1/2 transform -translate-x-1/2 items-center bg-opacity-90 px-4 py-2 rounded-full  cursor-pointer hover:bg-opacity-100 transition duration-300"
                   onClick={() => setSelectedVideo('https://www.youtube.com/embed/zS4AP0Q8L8g?autoplay=1')}
                 >
                   {/* <svg className="w-45 h-20 text-gray-100 mr-2" fill="currentcolor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd"></path>
                   </svg>
                   <span className="text-3xl text-gray-100 text-center items-center">Watch in 360°</span> */}
-                  <div className='mt-9 flex items-center text-gray-100 text-sm ml-4'>
-                    <svg className="w-4 h-4 mr-1 text-gray-100" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <div className='mt-9 flex items-center text-gray-100 text-sm ml-3'>
+                    <svg className="w-3 h-3 mr-1 text-gray-100" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path>
                     </svg>
-                    <span className="mr-4 text-gray-100">location</span>
+                    <span className="mr-4 text-gray-100 ">location</span>
                    
                   </div>
                 </div>
               </div>
-              <div className="p-6 flex-grow flex flex-col justify-between">
+              <div className="p-3 flex-grow flex flex-col justify-between">
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{tour.title}</h3>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{tour.title}</h3>
                   <p className="text-gray-600 text-sm mb-4">{tour.description}</p>
                 </div>
-                <div className="flex items-center text-gray-500 text-sm mb-6">
+                <div className="flex items-center text-gray-500 text-sm mb-2">
                   <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path>
                   </svg>
@@ -150,7 +150,7 @@ const PopularVRTours: React.FC = () => {
                   </svg>
                   <span>{tour.duration}</span>
                 </div>
-                <button className="mt-6 text-grey-900 py-3 border w-50 border-red-700 rounded-full font-semibold hover:bg-red-200">
+                <button className="mt-6 text-grey-900 py-3 border w-50 border-gray-700 rounded-full font-semibold hover:bg-red-200">
                   Read More
                 </button>
               </div>

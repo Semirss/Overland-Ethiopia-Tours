@@ -3,18 +3,19 @@ import React from 'react';
 const Footer: React.FC = () => {
   return (
     <footer className="bg-black text-gray-400 py-12 px-4 font-sans">
-      <div className="container mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 border-b border-gray-700 pb-8 mb-8">
+      <div className="container mx-auto max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 border-b border-gray-700 pb-8 mb-8">
           {/* Column 1: Logo and Newsletter */}
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
-            <h3 className="text-white text-2xl font-bold mb-4">VR-TOURS 360°</h3>
+            <h3 className="text-white text-1xl font-bold mb-4">Overland
+Ethiopia Tours</h3>
             <p className="text-sm mb-6">
-              Get the latest VR destinations, travel tips, and exclusive content delivered to your inbox
+              Get the latest overland Ethiopia Tours , travel tips, and exclusive content delivered to your inbox
             </p>
             <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
               <input
                 type="email"
-                placeholder="Enter your e-mail"
+                placeholder= "Enter-Email"
                 className="w-full sm:flex-grow p-3 bg-transparent border-b border-gray-500 text-white focus:outline-none focus:border-white"
               />
               <button className="w-full sm:w-auto bg-white text-black px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-200 transition duration-300">
@@ -27,11 +28,14 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-white text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-white transition duration-200">VR Tours</a></li>
-              <li><a href="#" className="hover:text-white transition duration-200">Favorites</a></li>
-              <li><a href="#" className="hover:text-white transition duration-200">Top Destinations</a></li>
-              <li><a href="#" className="hover:text-white transition duration-200">Blog</a></li>
+              <li><a href="#" className="hover:text-white transition duration-200">Home</a></li>
+              <li><a href="#" className="hover:text-white transition duration-200">About</a></li>
+              <li><a href="#" className="hover:text-white transition duration-200">Activityies</a></li>
+              <li><a href="#" className="hover:text-white transition duration-200">Attractions</a></li>
+              <li><a href="#" className="hover:text-white transition duration-200">Tailor-made</a></li>
+              <li><a href="#" className="hover:text-white transition duration-200">Tour</a></li>
             </ul>
+            
           </div>
 
           {/* Column 3: Social & Newsletter */}

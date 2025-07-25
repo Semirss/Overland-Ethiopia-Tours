@@ -89,10 +89,9 @@ const Map: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center p-4 font-sans">
-      <div className="container mx-auto max-w-8xl p-4 md:p-8 my-8"> {/* Increased max-width */}
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-8 text-center">CHOOSE YOUR TOUR</h2>
+      <div className="container mx-auto max-w-5xl p-4 md:p-8 my-8"> 
+        <h2 className="text-4xl md:text-3xl font-bold text-gray-800 mb-8 text-center">CHOOSE YOUR TOUR</h2>
 
-        {/* Search and Filter Bar */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8 relative items-end">
           <div className="col-span-1 md:col-span-4 relative" ref={dropdownRef}>
             <label htmlFor="where" className="block text-gray-600 text-sm font-semibold mb-1">Where</label>
@@ -144,7 +143,7 @@ const Map: React.FC = () => {
         {/* Image Display and Filters */}
         <div className="flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-8">
           {/* Left Sidebar Filters */}
-          <div className="w-full lg:w-1/4 bg-white p-6 rounded-xl shadow-inner">
+          <div className="w-full lg:w-1/2 bg-white p-6 rounded-xl shadow-inner">
             <h3 className="font-bold text-gray-800 mb-4">Filters</h3>
             <div className="space-y-4">
               <div>
@@ -158,7 +157,7 @@ const Map: React.FC = () => {
                 <h4 className="text-gray-700 font-semibold mb-2">Your recent search</h4>
                 <ul className="space-y-2">
                   <li className="flex items-center text-gray-600">
-                    <svg className="w-4 h-4 mr-2 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path></svg>
+                    <svg className="w- h-4 mr-2 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path></svg>
                     Omo Valley with Yabello
                   </li>
                 </ul>
@@ -181,7 +180,7 @@ const Map: React.FC = () => {
           <div
             ref={imageDisplayRef} // Attach the ref here
             className="flex-grow relative bg-gray-200 rounded-xl overflow-hidden shadow-md flex items-center justify-center"
-            style={{ height: '700px' }}
+            style={{ height: '400px' }}
           >
             {selectedLocation ? (
               <>
@@ -203,7 +202,7 @@ const Map: React.FC = () => {
                   }}
                 >
                   <h3 className="text-3xl font-bold mb-2">{selectedLocation.name}</h3>
-                  <p className="text-lg">{selectedLocation.description}</p> {/* Displaying description */}
+                  <p className="text-sm">{selectedLocation.description}</p> {/* Displaying description */}
                   <p className="text-sm text-gray-300 mt-1">{selectedLocation.tours} Tours Available</p>
                 </div>
               </>

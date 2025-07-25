@@ -87,8 +87,8 @@ const Stories: React.FC = () => {
 
   return (
     <div className="bg-gray-50 flex justify-center p-4 font-sans">
-      <div className="container mx-auto max-w-8xl p-6 py-12">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-12 text-center md:text-left">
+      <div className="container mx-auto max-w-6xl p-6 py-12">
+        <h2 className="text-4xl md:text-4xl font-extrabold text-gray-900 mb-12 text-center md:text-left">
           Other Tours To Ethiopia
         </h2>
 
@@ -99,7 +99,7 @@ const Stories: React.FC = () => {
               {travelerStories.map((story, index) => (
                 <li
                   key={story.id}
-                  className={`text-lg font-semibold cursor-pointer transition-colors duration-300 ${
+                  className={`text-sm font-semibold cursor-pointer transition-colors duration-300 ${
                     index === currentStoryIndex
                       ? "text-black"
                       : "text-gray-400 hover:text-gray-600"
@@ -167,7 +167,7 @@ const Stories: React.FC = () => {
             {/* Quote and Testimonial */}
             <div className="flex-1 text-center md:text-left">
               <div className="text-7xl text-gray-400 mb-5">“</div>
-              <p className="text-gray-700 text-lg leading-relaxed italic">
+              <p className="text-gray-700 text-sm leading-relaxed italic">
                 {currentStory.testimonial}
               </p>
             </div>
