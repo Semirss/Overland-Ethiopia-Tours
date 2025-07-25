@@ -10,8 +10,8 @@ import Footer from './components/Footer';
 import HomePage from './components/HomePage';
 // Remove the Inter import and use a CSS import instead
 export const metadata: Metadata = {
-  title: 'VR Tours 360',
-  description: 'Explore nature in virtual reality from the comfort of your home',
+  title: 'Overland Ethiopia Tours',
+  description: 'Explore nature ',
 };
 
 export default function RootLayout({
@@ -26,7 +26,6 @@ export default function RootLayout({
       </head>
       <body className="font-inter ">
         <HeroSection />
-        {/* <HomePage /> */}
         <PopularVRTours />
         <TravelerStories />
         <Map />
