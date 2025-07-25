@@ -138,7 +138,7 @@ const HeroSection: React.FC = () => {
   return (
     <div
       className="relative min-h-screen w-full bg-cover bg-center text-white overflow-hidden"
-      style={{ backgroundImage: "url('/5bg.webp')" }}
+      style={{ backgroundImage: "url('/5bg.jpg')" }}
     >
       <div className="absolute inset-0 bg-black/40 z-0" />
 
