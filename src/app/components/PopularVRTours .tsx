@@ -113,11 +113,11 @@ const PopularVRTours: React.FC = () => {
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-75"></div>
-                <div className="absolute top-4 right-4 border border-amber-50 bg-opacity-50 p-2 rounded-full cursor-pointer hover:bg-opacity-75 transition duration-300">
+                {/* <div className="absolute top-4 right-4 border border-amber-50 bg-opacity-50 p-2 rounded-full cursor-pointer hover:bg-opacity-75 transition duration-300">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                   </svg>
-                </div>
+                </div> */}
                 <div
                   className="absolute inline-block  text-center bottom-10 left-1/2 transform -translate-x-1/2 items-center bg-opacity-90 px-4 py-2 rounded-full  cursor-pointer hover:bg-opacity-100 transition duration-300"
                   onClick={() => setSelectedVideo('https://www.youtube.com/embed/zS4AP0Q8L8g?autoplay=1')}
@@ -126,11 +126,11 @@ const PopularVRTours: React.FC = () => {
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd"></path>
                   </svg>
                   <span className="text-3xl text-gray-100 text-center items-center">Watch in 360°</span> */}
-                  <div className='mt-9 flex items-center text-gray-100 text-sm ml-3'>
-                    <svg className="w-3 h-3 mr-1 text-gray-100" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <div className='mt-9 flex items-center text-gray-300 text-sm ml-3'>
+                    <svg className="w-4 h-3 mr-1 text-gray-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path>
                     </svg>
-                    <span className="mr-4 text-gray-100 ">location</span>
+                    <span className="mr-4 text-gray-300 ">location</span>
                    
                   </div>
                 </div>
