@@ -159,7 +159,7 @@ const Map: React.FC = () => {
                 <ul className="space-y-2">
                   <li className="flex items-center text-gray-600">
                     <svg className="w-4 h-4 mr-2 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path></svg>
-                    Omo Valley with Yabello<span className="ml-auto text-sm text-gray-500">16 tours</span>
+                    Omo Valley with Yabello
                   </li>
                 </ul>
               </div>
@@ -169,7 +169,7 @@ const Map: React.FC = () => {
                   {allTourLocations.slice(0, 5).map((loc) => (
                     <li key={loc.id} className="flex items-center text-gray-600">
                       <svg className="w-4 h-4 mr-2 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path></svg>
-                      {loc.name} <span className="ml-auto text-sm text-gray-500">{loc.tours} tours</span>
+                      {loc.name} 
                     </li>
                   ))}
                 </ul>
