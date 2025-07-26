@@ -135,11 +135,32 @@ const HeroSection: React.FC = () => {
     setActiveMobileDropdown(prev => (prev === name ? null : name));
   };
 
+  const [currentBgIndex, setCurrentBgIndex] = useState(0);
+  const bgImages = ['/5bg.jpg', '/7bg.jpg', '/9bg.avif', '/8bg.jpg']; // Add your 4 images
+
+  // Background rotation effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBgIndex((prev) => (prev + 1) % bgImages.length);
+    }, 5000); // Change every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [bgImages.length]);
+
   return (
-    <div
-      className="relative min-h-screen w-full bg-cover bg-center text-white overflow-hidden"
-      style={{ backgroundImage: "url('/5bg.jpg')" }}
-    >
+     <div className="relative min-h-screen w-full text-white overflow-hidden">
+      <div className="absolute inset-0">
+        {bgImages.map((img, index) => (
+          <div
+            key={img}
+            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out ${
+              index === currentBgIndex ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{ backgroundImage: `url(${img})` }}
+          />
+        ))}
+      </div>
+      
       <div className="absolute inset-0 bg-black/40 z-0" />
 
       <header className="relative z-20 flex justify-between items-center px-3 sm:px-4 md:px-6 lg:px-8 xl:px-25 2xl:px-16 py-2  w-full">
@@ -147,7 +168,7 @@ const HeroSection: React.FC = () => {
           <a href="/" className="flex items-center text-lg font-bold tracking-wide">
             <img
               src="/Overland-Ethiopia-Tours-Logo.png" 
-              alt="VR-Tours Logo"
+              alt="overland-ethiopia-tours-logo"
               className="w-8 h-8 object-cover mr-1"
             />
             <span className=" md:block text-sm">OVERLAND</span>
@@ -328,7 +349,7 @@ const HeroSection: React.FC = () => {
           Overland <br className="block " />Ethiopia <span className='text-red-500'>Tours</span>
         </h1>
         <p className="mt-2 text-sm sm:text-base md:text-sm opacity-90 max-w-xl">
-          See the world from home!
+          Get to know Ethiopia
         </p>
         <button className="mt-5 sm:mt-5 bg-white text-black px-4    py-1.5 sm:px-4 sm:py-2 rounded-full font-semibold hover:bg-gray-200 text-xs sm:text-sm">
           START TRAVELLING
@@ -339,8 +360,8 @@ const HeroSection: React.FC = () => {
 <div className="w-full pl-3 sm:pl-4 md:pl-25 pr-0 py-0 md:h-50 flex flex-col lg:flex-row mt-auto">
         <div className="flex flex-col md:flex-row w-full  overflow-hidden">
           {/* Category Cards */}
-          <div className="bg-white/70 backdrop-blur-md rounded-lg md:rounded-l-lg shadow-md flex-grow md:w-2/3 lg:w-3/4">
-            <div className="bg-white/10 backdrop-blur-xl p-3 rounded-lg md:rounded-l-lg shadow-lg overflow-hidden h-full">
+          <div className="bg-white/70 backdrop-blur-md  md:rounded-l-lg   shadow-md flex-grow md:w-2/3 lg:w-3/4">
+            <div className="bg-white/10 backdrop-blur-xl p-3  md:rounded-l-lg shadow-lg overflow-hidden h-full">
               <div className="flex overflow-x-auto whitespace-nowrap gap-6 items-stretch p-5 pb-4 h-full hide-scrollbar">
                 {[
                   {
