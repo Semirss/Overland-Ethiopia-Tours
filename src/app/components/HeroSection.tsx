@@ -299,7 +299,7 @@ const HeroSection: React.FC = () => {
                   <>
                     <button
                       onClick={() => handleDesktopDropdownToggle(item.name)}
-                      className="flex items-center text-white hover:text-gray-300 focus:outline-none py-1"
+                      className="flex items-center text-white hover:text-red-500 focus:outline-none py-1"
                     >
                       {item.name}
                       {activeDesktopDropdown === item.name ? <ChevronUp className="w-3 h-3 ml-0.5" /> : <ChevronDown className="w-3 h-3 ml-0.5" />}
