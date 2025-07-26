@@ -80,7 +80,7 @@ Ethiopia Tours</h3>
             <div className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 mr-3">
               <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-2a1 1 0 10-2 0 1 1 0 002 0zm-.464 5.232a3 3 0 01-4.243 0 1 1 0 00-1.414 1.414 5 5 0 007.071 0 1 1 0 00-1.414-1.414z" clipRule="evenodd"></path></svg>
             </div>
-            <span>VR Tours. © 2025 All rights reserved</span>
+            <span>overland et. © 2025 All rights reserved</span>
           </div>
           <div className="flex items-center space-x-4">
             <a href="#" className="hover:text-white transition duration-200">EN</a>

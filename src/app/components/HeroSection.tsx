@@ -271,7 +271,7 @@ const HeroSection: React.FC = () => {
 
         {/* Desktop Nav - Full Text */}
         {!isIconNav && (
-          <nav ref={desktopNavRef} className="hidden lg:flex gap-3 xl:gap-4 text-xs font-semibold relative z-10">
+          <nav ref={desktopNavRef} className="hidden lg:flex gap-3 xl:gap-4 text-xs  relative z-10">
             {navItems.map((item) => (
               <div key={item.name} className="relative group">
                 {item.subLinks ? (
